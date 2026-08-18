@@ -646,9 +646,10 @@ a {
 .phone {
   position: relative;
   border-radius: 42px;
-  padding: 9px;
-  background: linear-gradient(160deg, #ffffff 0%, #f2eae1 100%);
-  border: 1px solid var(--border);
+  padding: 6px;
+  background: black;
+  /* background: linear-gradient(160deg, #030000 0%, #f2eae1 100%); */
+  border: 1px solid var(--text-primary);
   box-shadow: 0 22px 50px -18px rgba(28, 23, 20, 0.22),
     0 3px 14px rgba(0, 0, 0, 0.04);
 }
@@ -656,6 +657,7 @@ a {
 .phone__screen {
   position: relative;
   border-radius: 34px;
+  
   overflow: hidden;
   background: var(--surface-deep);
   aspect-ratio: 720 / 1440;
@@ -677,7 +679,7 @@ a {
   width: 62px;
   height: 5px;
   border-radius: 3px;
-  background: rgba(28, 23, 20, 0.13);
+  background: var(--text-primary);
   z-index: 2;
 }
 

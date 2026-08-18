@@ -100,10 +100,6 @@ const FAQ: FaqEntry[] = [
     a: "Yes. Speak your entry and it transcribes as you talk. Some days want to be spoken, some want to be written — either one counts.",
   },
   {
-    q: "Does it work offline?",
-    a: "You can write an entry offline, and it syncs when you're back on a connection. Writing your reflection needs a connection, so it arrives once you reconnect.",
-  },
-  {
     q: "How is this different from a notes app?",
     a: "A notes app keeps what you wrote. Echo reads it back and tells you what you were feeling, then builds that into a picture of your week.",
   },

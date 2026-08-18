@@ -17,8 +17,14 @@ export const metadata: Metadata = {
 
 /* TODO before publishing: confirm the legal entity name, the governing
    jurisdiction, and the effective date with a lawyer. Google Play requires this
-   page to be publicly reachable at a stable URL. */
-const UPDATED = "6 August 2026";
+   page to be publicly reachable at a stable URL.
+
+   Note: the "does not use them to train or improve its models" statement in the
+   reflection section holds because the server's GEMINI_API_KEY runs on the paid
+   Gemini API tier, where content is not used for product improvement. If that
+   key is ever moved to an unbilled project, this claim stops being true and the
+   wording must change with it. */
+const UPDATED = "16 August 2026";
 
 export default function PrivacyPage() {
   return (
@@ -32,6 +38,7 @@ export default function PrivacyPage() {
         <li>Your entries are stored encrypted and are readable only by your account.</li>
         <li>Nobody at Echo reads your journal. Access rules prevent it.</li>
         <li>Your entries are never used to train AI models.</li>
+        <li>Voice entries are transcribed to text. Echo never stores the audio.</li>
         <li>There are no ads, no third-party trackers, and no data sold to anyone.</li>
         <li>Deleting your account deletes your entries, permanently.</li>
       </ul>
@@ -48,8 +55,6 @@ export default function PrivacyPage() {
       <p>
         The text you write, and the transcript of anything you speak, together
         with the reflection, stress score and mood label Echo generates from it.
-        Voice recordings are transcribed on your device or in transit and the
-        audio is not retained after transcription.
       </p>
       <h3>Your account</h3>
       <p>
@@ -58,8 +63,16 @@ export default function PrivacyPage() {
       </p>
       <h3>Basic technical data</h3>
       <p>
-        Crash reports and aggregate diagnostic information used to keep the app
-        working. This does not include the contents of your entries.
+        If the app stops unexpectedly, Google Play collects the standard crash
+        diagnostics that Android reports for every app. Echo does not include a
+        separate analytics or crash-reporting library of its own, and none of
+        this contains the contents of your entries.
+      </p>
+      <p>
+        Echo also uses Google Play Integrity to confirm that requests come from a
+        genuine, unmodified copy of the app rather than an impostor. This checks
+        the app and the device, not you, and is what prevents a modified client
+        from reaching Echo&apos;s servers on your behalf.
       </p>
 
       <h2>What Echo does not collect</h2>
@@ -68,6 +81,25 @@ export default function PrivacyPage() {
         <li>Advertising identifiers. Echo shows no ads.</li>
         <li>Behavioural profiles for marketing or resale.</li>
       </ul>
+
+      <h2>Microphone and voice entries</h2>
+      <p>
+        Echo can record a journal entry by voice. The microphone is active only
+        while you are recording an entry, and only after you start one.
+      </p>
+      <p>
+        To turn speech into text, Echo uses your device&apos;s built-in speech
+        recognition rather than its own. Depending on your device and its
+        settings, that recognition may run entirely on the device, or your
+        device&apos;s speech service — on most Android phones, Google&apos;s —
+        may receive the audio in order to transcribe it, under that
+        service&apos;s own privacy policy. This behaviour is controlled by your
+        device, not by Echo.
+      </p>
+      <p>
+        Echo never stores audio recordings. Only the resulting text is saved, as
+        your entry, and it is treated exactly like anything you typed.
+      </p>
 
       <h2>Where your journal is stored</h2>
       <p>
@@ -81,15 +113,30 @@ export default function PrivacyPage() {
 
       <h2>How your reflection is generated</h2>
       <p>
-        To write your daily reflection, the text of that entry is sent to Google
-        Gemini through Firebase AI Logic, which returns the sentence, the stress
-        score and the mood label. That content is used to produce your reflection
-        and for no other purpose. Under the Firebase AI Logic terms, content sent
-        through this service is not used to train Google&apos;s models.
+        When you save an entry, the text of that entry is sent to Echo&apos;s own
+        server, which passes it to Google&apos;s Gemini API and returns the
+        sentence, the stress score and the mood label. Your entry is never sent
+        to Gemini directly from your device, and the key used to reach it is held
+        on the server, never in the app.
       </p>
       <p>
         Only the entry being reflected on is sent. Your journal history is not
-        transmitted for this purpose.
+        transmitted for this purpose, and the text is used to produce your
+        reflection and for no other purpose. Echo does not use your entries to
+        train any AI model, and under the Gemini API terms Echo operates under,
+        Google does not use them to train or improve its models.
+      </p>
+      <p>
+        Echo&apos;s server keeps a count of how many reflections each account has
+        generated per day, so that daily limits can be enforced. This is a number
+        only — it holds no part of what you wrote.
+      </p>
+
+      <h2>Where your data is processed</h2>
+      <p>
+        Echo&apos;s database and server run on Google Cloud infrastructure
+        located in the United States. If you use Echo from another country, your
+        information is transferred to and processed there.
       </p>
 
       <h2>Who your data is shared with</h2>
@@ -108,8 +155,17 @@ export default function PrivacyPage() {
           identity.
         </li>
         <li>
-          <strong>Google Gemini via Firebase AI Logic</strong> — generating your
-          daily reflection.
+          <strong>Google Cloud Functions</strong> — Echo&apos;s own server, which
+          generates reflections and enforces daily limits.
+        </li>
+        <li>
+          <strong>Google Gemini API</strong> — generating the sentence, stress
+          score and mood label for your reflection.
+        </li>
+        <li>
+          <strong>Your device&apos;s speech recognition service</strong> — on
+          most Android phones, Google&apos;s — transcribing voice entries, where
+          your device performs that step off-device.
         </li>
       </ul>
       <p>
@@ -134,6 +190,11 @@ export default function PrivacyPage() {
       <p>
         You may also delete individual entries at any time without deleting your
         account.
+      </p>
+      <p>
+        If you tell us why you are leaving on the way out, that reason is stored
+        on its own, with no name, email or account identifier attached to it, and
+        cannot be traced back to you or your journal.
       </p>
 
       <h2>Your rights</h2>

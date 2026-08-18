@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 /* TODO before publishing: confirm the legal entity name, the governing
    jurisdiction, and the effective date with a lawyer. */
-const UPDATED = "6 August 2026";
+const UPDATED = "16 August 2026";
 
 export default function TermsPage() {
   return (
@@ -57,14 +57,34 @@ export default function TermsPage() {
         and you will not be charged without agreeing first.
       </p>
 
+      <h2>Reflections have a daily limit</h2>
+      <p>
+        Generating a reflection costs real money to run, so the number each
+        account can generate per day is capped, as is the total Echo generates
+        across everyone. These limits live on Echo&apos;s server and may be
+        adjusted, up or down, without an app update.
+      </p>
+      <p>
+        Reaching a limit never costs you an entry. Your writing is saved either
+        way — only the reflection is held back, and Echo will tell you when that
+        is why.
+      </p>
+
       <h2>Your content belongs to you</h2>
       <p>
         Your entries are yours. You keep all rights to what you write and say.
         You grant Echo only the narrow permission needed to run the service —
         storing your entries so you can read them back, and sending the text of
-        an entry to Google Gemini via Firebase AI Logic to generate your
-        reflection. That permission ends when you delete the content or your
-        account.
+        an entry to Google&apos;s Gemini API, by way of Echo&apos;s own server, to
+        generate your reflection. That permission ends when you delete the
+        content or your account.
+      </p>
+      <p>
+        If you record an entry by voice, your device&apos;s own speech
+        recognition turns it into text first. Echo stores only that text, never
+        the audio. The{" "}
+        <Link href="/privacy">Privacy Policy</Link> explains what that means for
+        your device and its speech service.
       </p>
       <p>
         Echo does not use your entries to train AI models and does not publish,
