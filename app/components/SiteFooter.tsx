@@ -25,6 +25,9 @@ export function SiteFooter() {
                 <Link href="/terms">Terms of Service</Link>
               </li>
               <li>
+                <Link href="/delete-account">Delete Your Account</Link>
+              </li>
+              <li>
                 <a href={`mailto:${SUPPORT_EMAIL}`}>Contact</a>
               </li>
             </ul>

@@ -35,8 +35,8 @@ export default function PrivacyPage() {
     >
       <h2>The short version</h2>
       <ul>
-        <li>Your entries are stored encrypted and are readable only by your account.</li>
-        <li>Nobody at Echo reads your journal. Access rules prevent it.</li>
+        <li>Your entries are stored encrypted, and no other account can reach them.</li>
+        <li>Nobody at Echo reads your journal, and nothing in the app shows it to us.</li>
         <li>Your entries are never used to train AI models.</li>
         <li>Voice entries are transcribed to text. Echo never stores the audio.</li>
         <li>There are no ads, no third-party trackers, and no data sold to anyone.</li>
@@ -106,9 +106,25 @@ export default function PrivacyPage() {
         Entries are stored in Google Cloud Firestore, encrypted in transit and at
         rest. Every document is written under your user account, and Firestore
         security rules allow read and write access only to the signed-in account
-        that owns it. This is a technical restriction, not a promise about
-        internal conduct: there is no console, dashboard or support tool through
-        which Echo staff can read your entries.
+        that owns it. No other user, and no unauthenticated request, can reach
+        your entries — that part is enforced by the database itself, not by
+        policy.
+      </p>
+      <p>
+        Those rules govern the app. They do not govern Echo&apos;s own
+        administrative access. Echo is run by one person, who holds the kind of
+        database access that the operator of any hosted service holds, and which
+        is what makes it possible to keep the service running, recover from a
+        fault, or comply with a legal order. That access is not used to read
+        journals, and there is no dashboard, support tool or feature anywhere in
+        Echo that surfaces your entries to anyone.
+      </p>
+      <p>
+        Echo is not end-to-end encrypted, and this page will not imply otherwise.
+        Your reflection is written by sending the text of an entry to an AI
+        model, which is not possible if nobody but you can read it. If a
+        guarantee that literally no one else is able to decrypt your writing is
+        what you need, that is an honest reason to choose a different tool.
       </p>
 
       <h2>How your reflection is generated</h2>

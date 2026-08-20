@@ -54,7 +54,7 @@ const TRUST = [
   {
     icon: <LockIcon />,
     title: "Encrypted and private.",
-    body: "Entries are stored encrypted in Google Cloud, readable only by your account.",
+    body: "Entries are stored encrypted in Google Cloud, and no other account can reach them.",
   },
   {
     icon: <SparkOffIcon />,
@@ -64,7 +64,7 @@ const TRUST = [
   {
     icon: <EyeOffIcon />,
     title: "Nobody reads your journal.",
-    body: "Not us, not anyone. Access rules make it technically impossible.",
+    body: "No other account can reach it, and nothing in Echo shows your entries to us.",
   },
   {
     icon: <TrashIcon />,
@@ -81,11 +81,11 @@ const TRUST = [
 const FAQ: FaqEntry[] = [
   {
     q: "Is my journal private?",
-    a: "Yes. Entries are stored encrypted in Google Cloud Firestore under your account, and access rules mean only your account can read them.",
+    a: "Yes. Entries are stored in Google Cloud Firestore under your account, encrypted in transit and at rest, and access rules stop any other account from reaching them. Echo is not end-to-end encrypted — the Privacy Policy says plainly who can access what.",
   },
   {
     q: "Do you read my entries?",
-    a: "No. We have no way to. The access rules that protect your entries apply to us the same way they apply to everyone else.",
+    a: "No. Nothing in Echo — no dashboard, no support tool, no feature of any kind — shows your journal to us. Echo is run by one person who, like the operator of any hosted service, holds administrative access to the database it lives in. That access is there to keep Echo running, not to read journals.",
   },
   {
     q: "Is Echo free?",
